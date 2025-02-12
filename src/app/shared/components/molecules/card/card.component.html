@@ -14,7 +14,7 @@
   <ng-template #footer>
     <div class="flex justify-content-center gap-4 mt-1">
       <button pButton severity="danger" icon="pi pi-trash" (click)="delete(heroe().id)">Deletar</button>
-      <button pButton severity="primary" icon="pi pi-pencil">Editar</button>
+      <button pButton severity="primary" icon="pi pi-pencil" (click)="update(heroe())">Editar</button>
     </div>
   </ng-template>
 </p-card>

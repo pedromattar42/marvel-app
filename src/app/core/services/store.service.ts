@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { ApiResponse } from '../../shared/interfaces/pagination';
+import { ApiResponse } from '../../shared/interfaces/api-response';
+import { HeroeInterface } from '../../shared/interfaces/heroe';
+import { StorageInterface } from '../../shared/interfaces/storage';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StoreService {
-  private storage$ = new BehaviorSubject<ApiResponse<any[]>>({
+  private storage$ = new BehaviorSubject<StorageInterface<HeroeInterface[]>>({
     count: 0,
     limit: 0,
     offset: 0,
     total: 0,
     results: [],
-    deletedIds: []
   });
 
   public get() {
@@ -24,28 +25,17 @@ export class StoreService {
   }
 
   public delete(id: number) {
-    console.log(this.getValue())
     const dto = {
       ...this.getValue(),
       offset: 0,
-      deletedIds: [...this.getValue().deletedIds, id],
       results: this.getValue().results.filter((heroe) => heroe.id !== id)
     }
-    console.log(dto)
 
     this.set(dto)
   }
 
-  public set(value: ApiResponse<any[]>) {
-    console.log(value)
-    const result = this.mergeUnique(this.getValue().results, value.results)
-    const dto = {
-      ...value,
-      results: result.filter((heroe) => value.deletedIds ? !value.deletedIds.includes(heroe.id) : true),
-      deletedIds: value.deletedIds ? value.deletedIds : []
-    }
-    console.log(dto)
-    this.storage$.next(dto)
+  public set(value: StorageInterface<HeroeInterface[]>) {
+    this.storage$.next(value)
   }
   
   public update(offset: number) {
@@ -55,8 +45,33 @@ export class StoreService {
     })
   }
 
-  mergeUnique<T extends { id: number }>(list1: T[], list2: T[]): T[] {
-    const merged = [...list1, ...list2];
-    return Array.from(new Map(merged.map(item => [item.id, item])).values());
+  public createHero(newHero: HeroeInterface) {
+    const heroes = this.getValue().results;
+  
+    const newId = heroes.length > 0 ? Math.max(...heroes.map(h => h.id)) + 1 : 1;
+    const heroToAdd = { ...newHero, id: newId };
+  
+    const dto = {
+      ...this.getValue(),
+      results: [...heroes, heroToAdd]
+    };
+  
+    this.set(dto);
   }
+  
+  public updateHero(updatedHero: HeroeInterface) {
+    const heroes = this.getValue().results;
+  
+    const updatedHeroes = heroes.map(hero =>
+      hero.id === updatedHero.id ? { ...hero, ...updatedHero } : hero
+    );
+  
+    const dto = {
+      ...this.getValue(),
+      results: updatedHeroes
+    };
+  
+    this.set(dto);
+  }
+  
 }

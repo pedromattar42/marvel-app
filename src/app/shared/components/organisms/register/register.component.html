@@ -1,1 +1,41 @@
-<p>register works!</p>
+<section [formGroup]="model">
+  <div class="flex align-items-center justify-content-center">
+    <app-input-file
+      label="Upload *"
+      [imageSrc]="imageSrc"
+      (onChangeInput)="showImageCropperDialog($event)"
+      (changeDelete)="resetImage()"
+    />
+  </div>
+  <div class="flex flex-column items-center gap-2 mb-4">
+    <label for="username" class="font-semibold w-24">Nome *</label>
+    <input
+      formControlName="name"
+      pInputText
+      class="flex-auto"
+      autocomplete="off"
+    />
+  </div>
+  <div class="flex flex-column items-center gap-2 mb-4">
+    <label for="email" class="font-semibold w-24">Descrição</label>
+    <textarea
+      formControlName="description"
+      rows="5"
+      cols="30"
+      pTextarea
+    ></textarea>
+  </div>
+  <div class="flex align-items-center justify-content-end gap-2">
+    <button [raised]="true" pButton severity="secondary" (click)="close()">
+      Voltar
+    </button>
+    <button
+      [raised]="true"
+      pButton
+      [disabled]="model.invalid || model.pristine"
+      (click)="confirm()"
+    >
+      Confirmar
+    </button>
+  </div>
+</section>
