@@ -1,0 +1,64 @@
+.hero-grid {
+  display: flex;
+}
+
+.heroes-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  padding: 20px;
+}
+
+.marvel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.marvel-header {
+  background-color: #e62429;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.marvel-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.marvel-header p {
+  margin: 5px 0 0;
+  font-size: 1.2rem;
+}
+
+.marvel-paginator {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .marvel-header h1 {
+    font-size: 2rem;
+  }
+
+  .marvel-header p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .marvel-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .marvel-header p {
+    font-size: 0.9rem;
+  }
+}

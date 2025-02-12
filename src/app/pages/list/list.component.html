@@ -1,0 +1,37 @@
+<div class="marvel-container">
+    <header class="marvel-header">
+      <h1>Catálogo Marvel</h1>
+      <p>Explore o universo dos heróis da Marvel</p>
+    </header>
+  
+    <div class="marvel-controls mt-4">
+      <p-autoComplete 
+        [(ngModel)]="selectedHero" 
+        [suggestions]="filteredHeroes" 
+        (completeMethod)="searchHeroes($event)"
+        field="name" 
+        placeholder="Buscar herói..."
+        class="marvel-autocomplete"
+      >
+        <ng-template pTemplate="dropdownicon">
+          <i class="pi pi-search"></i>
+        </ng-template>
+      </p-autoComplete>
+  
+      <button pButton icon="pi pi-plus" label="Novo"></button>
+    </div>
+  
+    <div class="heroes-grid">
+      @for (heroe of heroesListPaginator(); track $index) {
+        <app-card [heroe]="heroe" (deleteChange)="delete($event)"></app-card>
+      }
+    </div>
+  
+    <p-paginator
+      [rows]="10"
+      [totalRecords]="heroesList()?.length"
+      (onPageChange)="paginate($event)"
+      class="marvel-paginator"
+    ></p-paginator>
+  </div>
+  
