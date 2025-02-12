@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { ApiResponse } from '../../shared/interfaces/api-response';
 import { HeroeInterface } from '../../shared/interfaces/heroe';
 import { StorageInterface } from '../../shared/interfaces/storage';
 

@@ -4,27 +4,26 @@ import {
   computed,
   inject,
   OnInit,
-  signal,
-  WritableSignal,
+  signal
 } from '@angular/core';
-import { HeroesService } from '../../shared/services/heroes.service';
-import { PaginatorModule, PaginatorState } from 'primeng/paginator';
-import { CardModule } from 'primeng/card';
-import { CardComponent } from '../../shared/components/molecules/card/card.component';
-import { StoreService } from '../../core/services/store.service';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { filter, finalize, map } from 'rxjs';
-import { ButtonModule } from 'primeng/button';
+import { FormsModule } from '@angular/forms';
 import {
   AutoCompleteCompleteEvent,
   AutoCompleteModule,
   AutoCompleteSelectEvent,
 } from 'primeng/autocomplete';
-import { FormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
 import { DialogService } from 'primeng/dynamicdialog';
+import { PaginatorModule, PaginatorState } from 'primeng/paginator';
+import { finalize, map } from 'rxjs';
+import { StoreService } from '../../core/services/store.service';
+import { LoadingComponent } from '../../shared/components/atoms/loading/loading.component';
+import { CardComponent } from '../../shared/components/molecules/card/card.component';
 import { RegisterComponent } from '../../shared/components/organisms/register/register.component';
 import { HeroeInterface } from '../../shared/interfaces/heroe';
-import { LoadingComponent } from '../../shared/components/atoms/loading/loading.component';
+import { HeroesService } from '../../shared/services/heroes.service';
 
 @Component({
   selector: 'app-list',
