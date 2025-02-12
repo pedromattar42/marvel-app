@@ -51,14 +51,12 @@ export class ListComponent implements OnInit {
     this._storageService.get().pipe(map((res) => res.results))
   );
   protected heroesListPaginator = computed(() => {
-    console.log(this.selectedHero());
     const list = this.selectedHero()
       ? this.heroesList()?.filter(
           (heroe) => heroe.id === this.selectedHero()?.id
         )
       : this.heroesList();
 
-    console.log(list, this.pageState);
 
     return list?.slice(
       this.pageState()?.first ?? 0,
