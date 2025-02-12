@@ -1,59 +1,64 @@
 # MarvelApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.6.
+Este projeto foi desenvolvido utilizando o [Angular CLI](https://github.com/angular/angular-cli) versão 19.1.6.
 
-## Development server
+## Sobre o Projeto
 
-To start a local development server, run:
+O **MarvelApp** é um aplicativo baseado no universo da Marvel, permitindo visualizar e gerenciar informações sobre heróis. A aplicação consome a API da Marvel para exibir detalhes sobre personagens, histórias e muito mais.
+
+## Servidor de Desenvolvimento
+
+Para iniciar o servidor de desenvolvimento local, execute o seguinte comando:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Após iniciar o servidor, abra seu navegador e acesse `http://localhost:4200/`. O aplicativo será recarregado automaticamente sempre que você modificar os arquivos do código-fonte.
 
-## Code scaffolding
+## Gerando Componentes
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+O Angular CLI possui ferramentas poderosas para geração de código. Para criar um novo componente, utilize:
 
 ```bash
-ng generate component component-name
+ng generate component nome-do-componente
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Para ver a lista completa de esquemas disponíveis (como `components`, `directives` ou `pipes`), execute:
 
 ```bash
 ng generate --help
 ```
 
-## Building
+## Build (Compilação)
 
-To build the project run:
+Para compilar o projeto, utilize o seguinte comando:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Os artefatos gerados serão armazenados na pasta `dist/`. Por padrão, a versão de produção otimiza o desempenho e a velocidade da aplicação.
 
-## Running unit tests
+## Executando Testes Unitários
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Para rodar os testes unitários utilizando o [Karma](https://karma-runner.github.io), utilize:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+## Executando Testes de Fim a Fim (E2E)
 
-For end-to-end (e2e) testing, run:
+Para testes end-to-end (E2E), execute:
 
 ```bash
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+O Angular CLI não inclui uma estrutura de testes E2E por padrão, então você pode escolher a que melhor atende suas necessidades.
 
-## Additional Resources
+## Recursos Adicionais
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Para mais informações sobre o Angular CLI, incluindo referências detalhadas de comandos, acesse a [Documentação Oficial do Angular CLI](https://angular.dev/tools/cli).
+
