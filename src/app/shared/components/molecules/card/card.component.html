@@ -1,0 +1,20 @@
+<p-card [style]="{ width: '25rem', overflow: 'hidden' }" class="hero-card">
+  <ng-template pTemplate="header">
+    <img
+      [src]="heroe().image"
+      class="hero-image"
+      (error)="heroe().image = 'assets/image-not-found.png'"
+      alt="{{ heroe().name }}"
+    />
+  </ng-template>
+  <ng-template pTemplate="title">
+    {{ heroe().name }}
+  </ng-template>
+  <p>{{ heroe().description || "Descrição não disponível" }}</p>
+  <ng-template #footer>
+    <div class="flex justify-content-center gap-4 mt-1">
+      <button pButton severity="danger" icon="pi pi-trash" (click)="delete(heroe().id)">Deletar</button>
+      <button pButton severity="primary" icon="pi pi-pencil">Editar</button>
+    </div>
+  </ng-template>
+</p-card>
